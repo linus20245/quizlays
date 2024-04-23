@@ -1,0 +1,167 @@
+/* Importa as fontes do Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+/* Estilos básicos */
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #333; /* Fundo escuro para desktop */
+    font-family: 'Roboto', sans-serif; /* Altera a fonte padrão */
+    overflow: hidden; /* Impede o scroll no body */
+}
+
+#quiz-container {
+    width: 720px;
+    height: 1080px;
+    margin: auto;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #000;
+    border: 2px solid #000; /* Contorno preto existente */
+    border-top: 10px solid black; /* Adiciona borda superior preta */
+    border-bottom: 10px solid black; /* Adiciona borda inferior preta */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5); /* Sombra sutil para destacar o quiz */
+}
+
+.resposta {
+    width: 100%;
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.3s, filter 0.3s;
+    position: relative;
+    z-index: 1;
+    overflow: visible; /* Permite que filhos absolutamente posicionados sejam visíveis fora do container */
+    padding-bottom: 50px; /* Adiciona espaço extra na parte inferior para o ícone */
+}
+
+#parte-superior {
+    background-color: #002DFF;
+    border-bottom: 6px solid black; /* Adiciona borda inferior preta */
+}
+
+#parte-inferior {
+    background-color: #FF3500;
+}
+
+.texto-resposta {
+    font-size: 2.2em; /* Aumenta o tamanho da fonte */
+    color: #fff;
+    user-select: none;
+    z-index: 2;
+    text-shadow: 4px 4px 6px rgba(0, 0, 0, 0.9); /* Adiciona sombra ao texto */
+}
+
+.pergunta {
+    position: absolute;
+    top: 50%; /* Centraliza verticalmente */
+    left: 50%; /* Centraliza horizontalmente */
+    transform: translate(-50%, -50%); /* Ajusta a posição exata da centralização */
+    width: 80%; /* Ajusta a largura para evitar tocar as bordas */
+    text-align: center;
+    z-index: 3;
+}
+
+.texto-pergunta {
+    font-size: 1.8em; /* Tamanho original para dispositivos maiores */
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.4); /* Mantém o fundo para legibilidade */
+    padding: 0.5em 1em;
+    border-radius: 10px;
+    text-shadow: 4px 4px 6px rgba(0, 0, 0, 0.9); /* Adiciona sombra ao texto */
+    display: inline-block; /* Garante que o padding seja aplicado corretamente */
+    max-width: 100%; /* Garante que o texto não ultrapasse a largura do container */
+    box-sizing: border-box; /* Inclui padding e border no width/height */
+}
+
+.cronometro {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 2em;
+    background-color: #6c757d;
+    border-radius: 50%;
+    width: 75px;
+    height: 75px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    z-index: 3;
+}
+
+/* Responsividade */
+@media (max-width: 720px) {
+    body, html {
+        background-color: #000; /* Fundo preto para dispositivos móveis */
+        overflow: hidden; /* Impede o scroll no body em dispositivos móveis */
+    }
+    #quiz-container {
+        width: 100%;
+        height: 100vh; /* Altura total da viewport */
+        border: none; /* Sem borda para dispositivos móveis */
+        box-shadow: none; /* Sem sombra para dispositivos móveis */
+        margin: 0; /* Remove a margem para ajustar ao topo */
+    }
+    .cronometro {
+        top: 5%; /* Posição ajustada para o topo */
+        left: 50%;
+        transform: translateX(-50%);
+        width: 60px; /* Largura reduzida */
+        height: 60px; /* Altura reduzida */
+        font-size: 1.5em; /* Tamanho da fonte reduzido */
+    }
+    .pergunta, .texto-pergunta {
+        width: 90%; /* Reduz a largura para garantir o ajuste sem scroll horizontal */
+        font-size: 1.2em; /* Reduz o tamanho da fonte para dispositivos móveis */
+        margin: 0 auto; /* Centraliza */
+    }
+    .resposta {
+        padding-bottom: 40px; /* Espaço extra ajustado para dispositivos móveis */
+    }
+}
+
+/* Adicione isso ao seu arquivo CSS */
+.piscar {
+    animation: piscarEfeito 0.5s;
+}
+.piscar-verde {
+    animation: piscarVerde 1s;
+}
+
+@keyframes piscarEfeito {
+    50% { opacity: 0.5; }
+    100% { opacity: 1; }
+}
+
+@keyframes piscarVerde {
+    50% { background-color: green; }
+}
+
+/* Estilos para a resposta correta */
+.correta {
+    animation: piscarVerde 2s; /* Aumenta a duração da animação */
+}
+
+.incorreta {
+    background-color: #dc3545; /* Vermelho do Bootstrap */
+}
+
+/* Estilos para o ícone de verificado */
+.icone-verificado {
+    color: orange; /* Cor do ícone para laranja */
+    font-size: 2em; /* Tamanho do ícone */
+    position: absolute;
+    bottom: 10px; /* Posiciona dentro do container */
+    left: 50%; /* Centraliza o ícone */
+    transform: translateX(-50%);
+    z-index: 4; /* Garante que o ícone fique acima de outros elementos */
+}

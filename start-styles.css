@@ -1,0 +1,36 @@
+/* Estilos para a página inicial do quiz */
+body, html {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f7f7f7; /* Cor de fundo leve; ajuste conforme necessário */
+    font-family: 'Arial', sans-serif; /* Fonte padrão; ajuste conforme necessário */
+}
+
+#start-container {
+    text-align: center;
+    width: 100%;
+}
+
+h1 {
+    color: #333; /* Cor do texto do título; ajuste conforme necessário */
+    margin-bottom: 2rem;
+}
+
+#startButton {
+    padding: 1rem 2rem;
+    font-size: 1.5rem;
+    color: white;
+    background-color: #007bff; /* Cor do botão; ajuste conforme necessário */
+    border: none;
+    border-radius: 0.3rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#startButton:hover {
+    background-color: #0056b3; /* Cor do botão ao passar o mouse; ajuste conforme necessário */
+}
+

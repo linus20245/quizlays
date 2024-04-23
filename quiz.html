@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Interativo</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="quiz-container" class="container" style="display: none;"> <!-- Oculta apenas o container do quiz -->
+        <div id="parte-superior" class="resposta" data-resposta="a">
+            <span class="texto-resposta">Paris</span>
+        </div>
+        <div class="pergunta">
+            <span class="texto-pergunta">Qual a capital da França?</span>
+        </div>
+        <div id="parte-inferior" class="resposta" data-resposta="b">
+            <span class="texto-resposta">Roma</span>
+        </div>
+        <div class="cronometro badge badge-secondary">10</div>
+    </div>
+    <!-- Inclua seu arquivo de perguntas_db.js como um módulo -->
+    <!-- Inclua seu arquivo script.js como um módulo -->
+    <script type="module" src="script.js"></script>
+    <!-- Sons do quiz -->
+    <audio id="correctSound" src="correct-answer.mp3" preload="auto"></audio>
+    <audio id="tickSound" src="tick.mp3" preload="auto"></audio>
+    <script>
+        // Pré-carregar os sons quando a página carrega
+        document.addEventListener('DOMContentLoaded', () => {
+            const correctSound = document.getElementById('correctSound');
+            const tickSound = document.getElementById('tickSound');
+            correctSound.load();
+            tickSound.load();
+        });
+    </script>
+</body>
+</html>

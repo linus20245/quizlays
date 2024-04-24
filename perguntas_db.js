@@ -1,6 +1,6 @@
 // perguntas_db.js
 const perguntasDB = [
- {
+    {
         "pergunta": "Qual é o maior animal terrestre?",
         "respostas": {
             "a": "Elefante africano",
